@@ -16,13 +16,15 @@
                 <input type="text" name="" id="" 
                 v-bind:placeholder="placeholderString" 
                 v-bind:value="inputValue"
-                v-on:input="inputChangeHandler">
+                v-on:input="inputChangeHandler"
+                v-on:keypress.enter="addNewNote">
             </div>
-            <button class="btn">Добавить</button>
+            <button class="btn" v-on:click="addNewNote">Добавить</button>
             <hr>
             <ul class="list">
-                <li class="list-item" v-for="note of notes">
-                    {{note}}
+                <li class="list-item" v-for="(note, index) of notes">
+                    ({{index + 1}}){{note}}
+                    <button class="btn danger" v-on:click="delNote(index)">Delete</button>
                 </li>
             </ul>
         </div>

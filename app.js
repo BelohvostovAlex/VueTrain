@@ -10,7 +10,14 @@ const App = {
     methods: {
         inputChangeHandler(e) {
             this.inputValue = e.target.value
-        }
+        },
+        addNewNote() {
+            this.notes.push(this.inputValue)
+            this.inputValue = ''
+        },
+        delNote(i) {
+           this.notes = this.notes.filter(item => item !== this.notes[i])
+        },
     }
 }
 
